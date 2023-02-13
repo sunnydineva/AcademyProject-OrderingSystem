@@ -18,6 +18,13 @@ public class Email {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "email_address",length = 50)
     private String emailAddress;
 
+    @OneToOne(mappedBy = "customerEmail")
+    private Customer customer;
+
+    public Email(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 }
